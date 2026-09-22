@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+path='/home/demo/docs/flangs/java/projects/hiper-scientific-calculator/backend/java/services'
+
+declare -a array
+IFS='/' read -ra array <<< "$path" # turn to array
+#read command use the IFS text var
+
+#declare -p array
+#[[ "${array[6]}" == "hiper-scientific-calculator" ]] && echo yes
+target="hiper-scientific-calculator"
+has=false
+for((i=0; i<${#array}; i++))
+do
+	if[[ "${array[$i]}" == "${target:0:1}" ]]
+	then
+		for((j=i; j<${#target}; j++))
+		do
+			[[ "${arry[j]}" == "${target:$j:1}" ]] && has=true
+		done
+	fi
+done
+exit
+
+
+index=0
+for((; index<${#array}; index++))
+do
+	[[ "${array[$index]}" == 'hiper-scientific-calculator' ]] && \
+	break
+done
+
+# constuct path
+s=''
+temp=''
+echo -e "${array[index]}"
+exit
+for((i=index; i<${#array}; i++))
+do
+	temp="${array[$i]}/"
+	s="${s}$temp"
+done
+
+echo -e "$s"

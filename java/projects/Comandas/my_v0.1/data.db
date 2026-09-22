@@ -1,0 +1,12 @@
+CREATE TABLE usuarios (
+    id INTEGER PRIMARY KEY,
+    login TEXT UNIQUE,
+    senha TEXT  -- vamos guardar hash, não senha pura
+);
+
+CREATE TABLE sessoes (
+    token TEXT PRIMARY KEY,
+    usuario_id INTEGER,
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
+);

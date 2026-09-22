@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Cardápio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="menu">
+    <div class="container">
+        <a href="#" id="back-link" class="back-link">← Voltar para Comanda</a>
+        
+        <div id="menu-container">
+            <p class="loading">Carregando cardápio...</p>
+        </div>
+        
+        <br>
+        <a href="#" id="back-link-bottom" class="back-link">← Voltar para Comanda</a>
+    </div>
+    
+    <script>
+        // Sincroniza o link de baixo com o de cima
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderId = new URLSearchParams(window.location.search).get('orderId');
+            document.querySelector('#back-link').href = `order.html?id=${orderId}`;
+            document.querySelector('#back-link-bottom').href = `order.html?id=${orderId}`;
+        });
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>

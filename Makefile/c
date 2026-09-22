@@ -1,0 +1,18 @@
+
+
+CC     = gcc
+CFLAGS = -Wall -02
+TARGET = main
+SRC    = main.c
+
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -o $(TARGET)
+
+run:
+	./main
+	@echo -e "[Finished]\nExit: $$?"
+
+clean:
+	rm -f $(TARGET)
+
+.PHONY: all clean run

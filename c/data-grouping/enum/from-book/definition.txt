@@ -1,0 +1,6 @@
+Em C, uma enumercao eh uma extenaco da linguagem c acrecentada
+pelo padrao ANSI. Uma enumeracao eh um conjunto de constantes
+inteiras que esoecifica todos os valores legais que uma 
+variavel desse tipo pode ter. Enumeracoes soa comuns a vida 
+cotidiana. Por exemplo, uma enumeracao daas moedas usadas nos
+eua eh penny, nickel, dime, quarter, hald-dollar.

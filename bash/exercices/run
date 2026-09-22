@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+[[ ! $(cat /home/demo/.bashrc_utils | grep "AUTO_RUN_ENABLED") ]] && \
+ echo -e "auto run is disable"
+
+function usage
+{
+  echo -e "\
+\$run is a program to run some programing languages codes.
+usage: run -(r|p)--(asm(i8086|x86-64)|c|cpp|cs) <source_file> [-o <output_file>]
+-p    print the auto run language
+-r    to remove the binary output file
+-o    to set a alternative name for output file\n"
+}
+
+set_auto_run()
+{
+  
+}
+
+run()
+{
+  
+}
+
+function main
+{
+  [ $# -lt 1 ] && [ ! AUTO_RUN_ENABLED ] && usage && return 0
+  local args="$@"
+
+}
+
+main
+exit 0

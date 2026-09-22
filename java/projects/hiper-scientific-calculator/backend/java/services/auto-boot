@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+
+#problema: 
+# /home/demo/docs/flangs/java/projects/hiper-scientific-calculator/backend/java/services
+# ta vendo essa string acima ? toskksks
+# entt, tire tudo ate flangs, faca o algoritmo.
+
+#alvo eh estar em qualquer pasta dentro da
+# pasta main do projeto e rodar o codigo
+
+function usage
+{
+	echo -e "\
+Usage: $0 --main-dir <dir_main_name> --target-dir <target_dir_name>
+
+dir_main_name is used to write\
+ \"package dir_main_name.path.to.target_dir_name;\" in\
+ all files inside target_dir_name
+
+
+
+target_dir_name is used to indicate the dir to write this
+
+public class File
+{}
+
+inside then
+
+
+Exmaple:
+\$ ls target_dir_name
+File1.java File2.java
+
+\$ bash $0 --main-dir project-name --target-dir services
+
+\$ cat File1.java
+
+package dir_main_name.path.to.target_dir_name;
+
+public class File1
+{}
+
+
+\$ cat File2.java
+
+package dir_main_name.path.to.target_dir_name;
+
+public class File1
+{}
+"
+}
+
+
+function format_package_path
+{
+	local target_dir="$1"
+
+	# /path/to/ to path/to if necessary
+	[[ ${target_dir:0:1} == '/' ]] && \
+	target_dir="${target_dir:1}"
+
+	[[ ${target_dir:$((${#s}-1)):1} == '/' ]] && \
+	target_dir="${target_dir:$((${#target_dir}-1)):1}"
+
+	target_dir=$(echo -e "$target_dir" | sed 's/\//\./')
+
+	printf "$s" $target_dir
+}
+
+function format_main_dir
+{}
+
+function write
+{
+	local dir="$1" # can or not have spaces
+	local files_names=$2 #no quotes, be cause $2 is an array
+	local file_dir=$3
+
+
+	for((i=0; i<${#files_names}; i++))
+	do
+	echo -e "\
+
+public class $class_name
+{}
+" >> $dir/$file_name
+	done
+}
+
+function get_files_names
+{
+	# get_files_names "asdasd asdsd asd asddasd"
+	#s='asdasd asdsd asd asddasd'
+	# and not
+	#s='asdasd'
+	local s=$1 # so the ' is unless
+	[[ "$s" == "" ]] && return 0
+
+	s_qtd=$(echo $s | wc -w)
+	s="$(echo $s | sed 's/ /\n/g')"
+
+	local -n _ret=$2
+	for((i=1; i<=$s_qtd; i++))
+	do
+		_ret=($(echo "$s" | awk NR==$i))
+	done
+	return 0
+}
+
+function main
+{
+	local main_dir
+	target_dir, target_dir_content
+
+	target_dir="$1"
+	[[ "$target_dir" =~ /$ ]] && 
+	target_dir=$(echo "$target_dir" | sed 's/\///') # format the path
+
+	target_dir_content=$(ls "$target_dir")
+	[[ "$(echo $target_dir_content | grep .java)" == "" ]] && \
+	echo -e "No java files found"
+
+	target_dir_content_sz=$(echo "$target_dir" | wc -l)
+
+	declare -a files_names
+	get_files_names 
+}
+
+#main

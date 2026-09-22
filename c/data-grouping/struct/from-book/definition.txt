@@ -1,0 +1,7 @@
+Em C, uma estrutura eh uma colecao de variaveis referenciadas
+por um nome, fornecendo uma maneira conveniente de se ter 
+informacoes relacionadas agrupadas. Uma definicao de estrutura
+forma um modelo que pode ser usado para criar variaveis de
+estruturas. As variaveis que compreendem a estrutura sao chamadas
+membros da estrutura. (Os membros da estrutur sao comumente
+chamados elementos ou campos.)

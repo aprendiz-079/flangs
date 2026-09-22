@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Comanda</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="order">
+    <div class="container">
+        <h1 id="order-title">🧾 Comanda: </h1>
+        
+        <div class="nav-links">
+            <a href="index.html" id="back-link" class="back-link">← Voltar</a>
+            <a href="#" id="menu-link" class="menu-link">📋 Cardápio</a>
+            <a href="#" id="history-link" class="history-link">📜 Histórico</a>
+            <span id="order-status"></span>
+        </div>
+        
+        <hr>
+        
+        <div id="add-manual-form" style="display: none;">
+            <h2>Adicionar Item Manual</h2>
+            <form id="add-manual-form-inner">
+                <input type="text" id="manual-item-name" placeholder="Nome ou código (ex: 203)" required>
+                <input type="number" id="manual-item-qty" value="1" min="1" required>
+                <input type="number" id="manual-item-price" step="0.01" placeholder="Valor unit">
+                <button type="submit" class="btn-primary">Adicionar</button>
+            </form>
+        </div>
+        
+        <hr>
+        
+        <h2>Itens</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sel</th>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Qtd</th>
+                    <th>Unit</th>
+                    <th>Total</th>
+                    <th>Data/Hora</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="items-tbody">
+                <tr><td colspan="8" class="loading">Carregando...</td></tr>
+            </tbody>
+        </table>
+        
+        <div id="item-actions" class="actions" style="display: none;">
+            <button id="btn-decrement" class="btn-info">🔽 Decrementar</button>
+            <button id="btn-increment" class="btn-warning">🔼 Incrementar</button>
+            <button id="btn-pay" class="btn-purple">💰 Marcar Pago</button>
+            <button id="btn-remove-item" class="btn-danger">🗑 Remover</button>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-row">
+                <span>✅ Crédito (já pagou):</span>
+                <span id="credit-value" class="credit">R$ 0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>⏳ Débito (consumiu):</span>
+                <span id="debit-value" class="debit">R$ 0.00</span>
+            </div>
+            <div class="summary-row balance">
+                <span>📊 Saldo:</span>
+                <span id="balance-value">+ R$ 0.00</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>

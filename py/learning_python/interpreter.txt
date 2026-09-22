@@ -1,0 +1,39 @@
+
+
+The Python Virtual Machine (PVM)
+Once your program has been compiled to byte 
+code (or the byte code has been loaded
+from existing .pyc files), it is shipped 
+off for execution to something generally known
+as the Python Virtual Machine (PVM, for 
+the more acronym-inclined among you).
+
+	The PVM sounds more impressive than it is; 
+really, it’s not a separate program, and it need
+not be installed by itself.
+
+	In fact, the PVM is just a big loop that iterates through your
+byte code instructions, one by one, 
+to carry out their operations.
+
+	The PVM is the runtime engine of Python;
+it’s always present as part of the Python system, and it’s the
+component that truly runs your scripts.
+
+	Technically, it’s just the last step of what is
+called the “Python interpreter.”
+
+Figure 2-2 illustrates the runtime structure described here. Keep in mind that all of this
+complexity is deliberately hidden from Python programmers. Byte code compilation is
+automatic, and the PVM is just part of the Python system that you have installed on
+your machine. Again, programmers simply code and run files of statements.
+
+byte code is like an virtual machine assembly
+
+		source        byte code     runtime
+		main.py   ->   main.pyc  ->  PVM
+
+
+java interpreter:
+   source        byte code      runtime
+   Main.java  -> Main.class  ->  JVM

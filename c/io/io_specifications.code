@@ -1,0 +1,20 @@
+
+               printf   scanf
+long double      %Lf      %Lf
+double           %f       %lf
+float            %f       %f
+long int         %lu      %lu
+int              %ld      %ld
+uint             %u       %u
+int              %i/d     %i/d
+unsigned short   %hu      %hu
+short            %hd      %hd
+char             %c       %c
+hex              %X
+size_t           %zd      %zd
+usize_t          %zu      %zu
+
+
+printar em bin:
+int n = 65;
+for(i=0; i>=0; i--) printf("%d", (n >> 1) & 1); puts("");

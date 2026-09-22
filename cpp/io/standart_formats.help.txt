@@ -1,0 +1,15 @@
+
+ 
+\a     alert
+\b     backspace
+\f     form population (FF, new display)
+\n     new line
+\r     car return
+\t     horizontal tab
+\v     vertical tab
+\'     apostrophe
+\"     double quote
+\\     inverted bar
+\?     question mark
+\ooo   chracter code in decimal notation
+\xhhh  chracter code in hexadecimal notation

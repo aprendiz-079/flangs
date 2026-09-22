@@ -1,0 +1,32 @@
+
+
+1. Data Convertion
+bin <-> oct <-> hex <-> dec
+
+
+2. Matrices
+sum, dif, determinant, operations
+
+
+3. Math concepts
+trigonometry:
+	sin, cos, tan, asin, acos, atan, ...
+logaritms:
+	base, expressions, operations, ...
+algebra:
+	vectores, linear systems, 
+	rules (Laplace, Crame, Sarrus, Gauss, Gauss + Jordan)
+calcules
+	derivate, integral, limits, discret math
+
+
+4. The Latex language
+to personalizate print (main IO)
+
+
+5. Constants
+universal, mathematical, eletromagnetic, ...
+
+
+6. Conversions
+mps <-> kmph ...

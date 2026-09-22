@@ -1,0 +1,59 @@
+A estrutura de coleções do Java (Java Collections Framework) é dividida em duas hierarquias principais: Collection (que agrupa elementos individuais) e Map (que agrupa pares de chave-valor). Abaixo segue uma tabela com os principais tipos, definições e a hierarquia completa.
+
+📊 Tipos de Coleções, Definições e Hierarquia
+Interface Raiz Sub-Interface Característica Principal Implementações Comuns
+Collection List Sequência ordenada. Permite elementos duplicados e acesso por índice numérico. ArrayList, LinkedList, Vector
+Collection Set Coleção que não permite duplicatas. Modela o conceito matemático de conjunto. HashSet, LinkedHashSet, TreeSet
+Collection Queue Coleção para processamento. Geralmente ordena elementos em FIFO (primeiro a entrar, primeiro a sair). PriorityQueue, LinkedList, ArrayDeque
+Map (Sem sub-interface) Objeto que mapeia chaves únicas para valores. Não estende Collection. HashMap, LinkedHashMap, TreeMap
+
+🏗️ Hierarquia de Classes (Diagrama Simplificado)
+
+A estrutura oficial do Java é dividida em duas árvores distintas (Collection e Map).
+
+🌳 Árvore Collection (Iterable -> Collection)
+
+```text
+Iterable
+ └── Collection
+      ├── List (ordenada, permite duplicatas)
+      │    ├── ArrayList (array redimensionável)
+      │    ├── LinkedList (lista duplamente ligada)
+      │    └── Vector (array sincronizado - legado)
+      │         └── Stack (LIFO, extensão de Vector)
+      │
+      ├── Set (sem duplicatas)
+      │    ├── HashSet (tabela hash, sem ordem)
+      │    ├── LinkedHashSet (mantém ordem de inserção)
+      │    └── SortedSet (interface para ordenação)
+      │         └── TreeSet (árvore rubro-negra, ordenado)
+      │
+      └── Queue (fila, processamento)
+           ├── PriorityQueue (ordem por prioridade)
+           ├── Deque (fila dupla - interface)
+           │    ├── ArrayDeque (array redimensionável)
+           │    └── LinkedList (também implementa Deque)
+           └── LinkedList (implementação padrão de Queue)
+```
+
+🌳 Árvore Map (Hierarquia Separada)
+
+```text
+Map (chave-valor, chaves únicas)
+ ├── HashMap (tabela hash, sem ordem)
+ ├── LinkedHashMap (mantém ordem de inserção)
+ ├── Hashtable (sincronizado - legado)
+ └── SortedMap (interface para ordenação)
+      └── TreeMap (árvore rubro-negra, ordenado por chave)
+```
+
+💡 Resumo Rápido para Escolha
+
+Para escolher a estrutura correta, considere a necessidade principal:
+
+· Ordem e Duplicatas: Use List (ArrayList para leitura rápida, LinkedList para inserção/remoção rápida).
+· Unicidade: Use Set (HashSet para performance, LinkedHashSet para manter ordem, TreeSet para ordem alfabética/numérica).
+· Chave-Valor: Use Map (HashMap para performance, LinkedHashMap para manter ordem, TreeMap para manter as chaves ordenadas).
+· Processamento/Fluxo: Use Queue (PriorityQueue para prioridades, Deque/ArrayDeque para operações nas duas pontas).
+
+Se você precisar de detalhes específicos sobre o desempenho (complexidade Big-O) ou diferenças de implementação de alguma classe em particular, é só avisar.

@@ -1,0 +1,15 @@
+
+to work imagem:
+stb
+libpng
+libjpeg-turbo
+
+
+to work audio:
+libsndfile
+smpeg
+
+to work with windows
+sdl_gfx
+gtk3
+gtk4

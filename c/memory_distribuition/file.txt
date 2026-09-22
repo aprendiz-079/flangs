@@ -1,0 +1,109 @@
+Bora desmontar a memória do C direitinho 🧠
+
+Em C todo dado vai pra 1 de 4 lugares. O lugar depende de COMO tu declarou.
+
+Pensa na memória como 4 "bairros" diferentes:
+
+
+*OS 4 BAIRROS DA MEMÓRIA*
+
+
+
+*1..TEXT/.rodata - Código + Constantes String*
+*Quem mora aqui*: Teu código compilado + `"strings literais"`
+
+*Exemplo:*
+const char *s = "opa";
+`"opa"` fica aqui. É só leitura.
+
+*Características:*
+1. *Só leitura*: Se tu tentar `s[0] = 'O'` dá Segmentation Fault
+2. *Vive a vida inteira*: Desde que o programa abre até fechar
+3. *Compartilhado*: Se tiver `"opa"` 10x no código, só tem 1 "opa" aqui
+
+
+
+
+*2..DATA /.BSS - Variáveis Globais e Estáticas*
+*Quem mora aqui*: Variável global ou `static`
+
+*Exemplo:*
+int idade = 20;      //.DATA - já nasce com valor
+int cpf;             //.BSS - nasce zerada
+static int contador; //.BSS - vive a vida inteira mas só visível aqui
+*Características:*
+1. *Vive a vida inteira*: Não morre quando a função acaba
+2. *.DATA* = já tem valor inicial. *.BSS* = nasce 0
+3. *Pode modificar*: Não, é só leitura
+
+
+
+
+*3. STACK - Pilha - Variáveis Locais*
+*Quem mora aqui*: Variável local dentro de função. `int`, `char s[10]`, `struct`
+
+*Exemplo:*
+void funcao() {
+    char s[10] = "opa"; // AQUI. Copiou "opa" da.TEXT pra cá
+    int x = 5;
+} // morreu. x e s sumiram
+*Características:*
+1. *Nasce e morre com a função*: Entrou na função = nasceu. Saiu = morreu
+2. *Pode modificar tudo*: `s[0] = 'O'` funciona
+3. *Rápido*: Alocar aqui é só "mover o ponteiro da pilha"
+4. *Pequeno*: Se estourar dá "Stack Overflow"
+
+Importante: `char s[10] = "opa"` faz isso -> Pega "opa" http://da.TEXT e COPIA pra stack
+
+
+
+
+*4. HEAP - Monte - malloc*
+*Quem mora aqui*: O que tu pediu com `malloc`, `calloc`
+
+*Exemplo:*
+char *s = malloc(10 * sizeof(char)); // Pede pro SO um pedaço
+strcpy(s, "opa");
+free(s); // Tu tem que liberar na mão
+*Características:*
+1. *Tu controla*: Só morre quando tu dá `free`
+2. *Pode modificar*: É teu
+3. *Grande*: Cabe muita coisa
+4. *Lento*: Pedir pro SO é caro
+5. *Vaza memória* se esquecer o `free`
+
+
+
+
+*TABELA MATADORA: COMPARANDO AS DECLARAÇÕES*
+
+Vamos usar teu exemplo de string:
+Código	Onde fica o ponteiro `s`	Onde fica "opa"	Pode mudar "o"?	Pode mudar pra "tchau"?
+`const char *s = "opa";`	Stack	.TEXT	Não	Sim
+`char *s = "opa";`	Stack	.TEXT	Não*	Sim
+`char s[10] = "opa";`	Stack	Stack	Sim	Sim
+`char *s = malloc(10); strcpy(s,"opa");`	Stack	Heap	Sim	Sim
+*Crash se tentar
+
+Desenhando:
+const char *s = "opa"
+[s na Stack] -> [endereço] -> ["opa\0" na.TEXT]
+
+char s[10] = "opa"
+[s na Stack] = ['o','p','a','\0', lixo...] <- Já está copiado aqui
+*REGRA DE OURO PRA DECIDIR*
+
+1. *Só vou ler e é fixo?* `const char *s = "opa";` Vai http://pra.TEXT. Econômico.
+2. *Preciso modificar as letras?* `char s[10] = "opa";` Vai pra Stack. Ele copia.
+3. *Não sei o tamanho na hora de compilar?* `malloc`. Vai pro Heap.
+
+*PEGADINHA CLÁSSICA*
+char* funcao_errada() {
+    char s[10] = "opa"; // s está na STACK
+    return s; // RETORNEI ENDEREÇO DE COISA QUE VAI MORRER
+} // s morreu aqui. O ponteiro virou lixo
+O certo seria `malloc` ou `static`.
+
+Sacou? A declaração decide o "endereço do bairro".
+
+Quer que eu faça um desenhinho da memória RAM com os 4 bairros e ponteiros pra ficar visual?

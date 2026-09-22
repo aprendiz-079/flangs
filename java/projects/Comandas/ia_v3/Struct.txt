@@ -1,0 +1,31 @@
+
+
+comanda-app/
+├── backend/
+│   ├── pom.xml                    (Maven)
+│   └── src/main/java/com/bar/
+│       ├── Main.java              (servidor HTTP + API)
+│       ├── Database.java          (conexão e migrations)
+│       ├── OrderController.java   (rotas da API)
+│       ├── MenuController.java    (rotas do cardápio)
+│       ├── model/
+│       │   ├── Order.java
+│       │   ├── OrderItem.java
+│       │   ├── MenuItem.java
+│       │   └── OrderLog.java
+│       └── service/
+│           ├── OrderService.java
+│           └── MenuService.java
+│
+├── frontend/
+│   ├── index.html
+│   ├── order.html
+│   ├── menu.html
+│   ├── confirm.html
+│   ├── history.html
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── app.js
+│
+└── README.md

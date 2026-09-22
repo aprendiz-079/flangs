@@ -1,0 +1,3 @@
+Em C, uma union eh uma posicao de memoria que eh compartilhada 
+por duas ou mais variaveis diferentes, geralmente de tipos 
+diferentes, em momentos diferentes.

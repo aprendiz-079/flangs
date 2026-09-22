@@ -1,0 +1,27 @@
+
+ASM      = nasm
+ASMFLAGS = -f elf32
+LD       = ld
+LDFLAGS  = -m elf_i386
+TARGET   = main
+SRCS     = main.asm
+OBJ      = main.o
+#OBJS = $(SRCS:.asm=.o)
+
+
+#all: $(TARGET) # for n asm files
+
+$(TARGET): $(OBJ)
+	$(LD) $(LDFLAGS) $(OBJ) -o $(TARGET)
+
+%.o: %.asm
+	$(ASM) $(ASMFLAGS) $< -o $@
+
+clean:
+	rm -f $(OBJ) $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
+	@echo -e "[Finished]\nExit: $$?"
+
+.PHONY: all clean run

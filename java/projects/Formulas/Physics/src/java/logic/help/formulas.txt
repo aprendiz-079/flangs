@@ -1,0 +1,170 @@
+Fórmulas de Física 1 e 2
+
+FÍSICA 1 (Mecânica)
+
+Cinemática
+
+· Movimento Retilíneo Uniforme (MRU):
+     s = s_0 + vt 
+· Movimento Uniformemente Variado (MUV):
+     v = v_0 + at 
+     s = s_0 + v_0t + \frac{1}{2}at^2 
+     v^2 = v_0^2 + 2a\Delta s 
+· Queda Livre (a = g \approx 9,8 m/s^2):
+     h = h_0 + v_0t - \frac{1}{2}gt^2  (eixo para cima positivo)
+
+Dinâmica
+
+· 2ª Lei de Newton:
+     \vec{F} = m\vec{a} 
+· Força Peso:
+     P = mg 
+· Força de Atrito:
+     F_{at} = \mu N 
+     \mu_c  (cinético),  \mu_e  (estático)
+· Força Elástica (Lei de Hooke):
+     F = -kx 
+
+Trabalho e Energia
+
+· Trabalho de uma força constante:
+     W = F \cdot d \cdot \cos\theta 
+· Energia Cinética:
+     K = \frac{1}{2}mv^2 
+· Energia Potencial Gravitacional:
+     U_g = mgh 
+· Energia Potencial Elástica:
+     U_e = \frac{1}{2}kx^2 
+· Teorema Trabalho-Energia:
+     W_{\text{total}} = \Delta K 
+· Conservação de Energia Mecânica:
+     K_i + U_i = K_f + U_f  (sem forças dissipativas)
+
+Momento e Colisões
+
+· Momento Linear:
+     \vec{p} = m\vec{v} 
+· Impulso:
+     \vec{I} = \Delta\vec{p} = \vec{F}\Delta t 
+· Conservação do Momento:
+     \sum \vec{p}_{\text{inicial}} = \sum \vec{p}_{\text{final}}  (sistema isolado)
+· Coeficiente de Restituição:
+     e = \frac{v_{2f} - v_{1f}}{v_{1i} - v_{2i}} 
+     e = 1  (elástica),  e = 0  (inelástica)
+
+Rotação
+
+· Movimento Circular Uniforme (MCU):
+     v = \omega R 
+     a_c = \frac{v^2}{R} = \omega^2 R  (aceleração centrípeta)
+· Período e Frequência:
+     T = \frac{1}{f} ,  \omega = 2\pi f = \frac{2\pi}{T} 
+
+Hidrostática
+
+· Pressão:
+     P = \frac{F}{A} 
+· Pressão Hidrostática:
+     P = P_0 + \rho gh 
+· Empuxo (Arquimedes):
+     E = \rho_{\text{fluido}} V_{\text{submerso}} g 
+
+---
+
+FÍSICA 2 (Termodinâmica, Ondas, Eletromagnetismo)
+
+Termodinâmica
+
+· Temperatura:
+     T(K) = T(°C) + 273,15 
+· Dilatação Térmica:
+    Linear:  \Delta L = \alpha L_0 \Delta T 
+    Volumétrica:  \Delta V = \beta V_0 \Delta T  (\beta \approx 3\alpha)
+· Calor:
+    Calor sensível:  Q = mc\Delta T 
+    Calor latente:  Q = mL 
+     1 \, \text{cal} = 4,186 \, \text{J} 
+· Primeira Lei da Termodinâmica:
+     \Delta U = Q - W 
+    Convenção:  Q > 0  (entra),  W > 0  (sistema realiza)
+· Trabalho em gás:
+     W = \int P \, dV 
+    Processo isobárico:  W = P\Delta V 
+· Gases Ideais:
+     PV = nRT 
+     R = 8,314 \, \text{J/(mol·K)} = 0,0821 \, \text{L·atm/(mol·K)} 
+     PV^{\gamma} = \text{constante}  (adiabático,  \gamma = C_p/C_v )
+· Segunda Lei e Entropia:
+     \Delta S = \int \frac{dQ}{T}  (processo reversível)
+    Eficiência de Carnot:  \eta = 1 - \frac{T_f}{T_q} 
+
+Ondas
+
+· Onda Harmônica:
+     y(x,t) = A \sin(kx - \omega t + \phi) 
+     k = \frac{2\pi}{\lambda} ,  \omega = 2\pi f ,  v = \lambda f = \frac{\omega}{k} 
+· Velocidade de onda:
+    Corda:  v = \sqrt{\frac{T}{\mu}}  ( \mu = m/L )
+    Som no ar:  v \approx 331 + 0,6T(°C) \, \text{m/s} 
+· Efeito Doppler (som):
+     f' = f \left( \frac{v \pm v_o}{v \mp v_f} \right) 
+    (+ no numerador se observador se aproxima, - no denominador se fonte se afasta)
+· Intensidade Sonora:
+     I = \frac{P}{A} ,  \beta = 10 \log_{10}\left(\frac{I}{I_0}\right)  dB
+     I_0 = 10^{-12} \, \text{W/m}^2 
+· Batimentos:
+     f_{\text{bat}} = |f_1 - f_2| 
+
+Óptica Geométrica
+
+· Refração (Lei de Snell):
+     n_1 \sin\theta_1 = n_2 \sin\theta_2 
+     n = c/v ,  n_{\text{ar}} \approx 1 
+· Espelhos e Lentes (finais):
+     \frac{1}{f} = \frac{1}{p} + \frac{1}{q} 
+     A = \frac{h_i}{h_o} = -\frac{q}{p} 
+     f = \frac{R}{2}  (espelho esférico)
+
+Eletrostática
+
+· Lei de Coulomb:
+     F = k \frac{|q_1 q_2|}{r^2} ,  k = 9 \times 10^9 \, \text{N·m}^2/\text{C}^2 
+· Campo Elétrico:
+     \vec{E} = \frac{\vec{F}}{q_0} ,  E = k \frac{|q|}{r^2}  (carga pontual)
+· Potencial Elétrico:
+     V = k \frac{q}{r}  (carga pontual)
+     \Delta V = -\int \vec{E} \cdot d\vec{l} ,  \Delta U = q\Delta V 
+· Capacitância:
+     C = \frac{Q}{V} 
+    Capacitor de placas:  C = \frac{\epsilon_0 A}{d} 
+    Energia:  U = \frac{1}{2}CV^2 = \frac{Q^2}{2C} 
+· Dielétricos:
+     C = \kappa C_0 ,  \kappa  (constante dielétrica)
+
+Corrente Elétrica
+
+· Lei de Ohm:
+     V = RI ,  R = \rho \frac{L}{A} 
+· Potência:
+     P = VI = I^2R = \frac{V^2}{R} 
+· Circuitos:
+    Série:  R_{\text{eq}} = \sum R_i 
+    Paralelo:  \frac{1}{R_{\text{eq}}} = \sum \frac{1}{R_i} 
+· Leis de Kirchhoff:
+    Nós:  \sum I_{\text{entra}} = \sum I_{\text{sai}} 
+    Malhas:  \sum V = 0 
+
+---
+
+CONSTANTES IMPORTANTES
+
+·  g = 9,8 \, \text{m/s}^2 
+·  G = 6,67 \times 10^{-11} \, \text{N·m}^2/\text{kg}^2 
+·  \epsilon_0 = 8,85 \times 10^{-12} \, \text{C}^2/(\text{N·m}^2) 
+·  c = 3 \times 10^8 \, \text{m/s} 
+·  k_B = 1,38 \times 10^{-23} \, \text{J/K} 
+·  N_A = 6,02 \times 10^{23} \, \text{mol}^{-1} 
+
+---
+
+Dica: Para estudar, organize essas fórmulas por tópico e entenda quando aplicá-las. A física não é só decorar fórmulas, mas compreender os conceitos por trás delas!

@@ -1,0 +1,180 @@
+
+
+#######################################################################
+Modos básicos
+
+- *r* : read - só leitura. Arquivo tem que existir. Ponteiro no início.
+- *w* : write - só escrita. Se existir, APAGA tudo. Se não existir, cria.
+- *a* : append - só escrita. Escreve sempre no final. Cria se não existir.
+
+- *r+* : leitura + escrita. Arquivo tem que existir.
+- *w+* : leitura + escrita. Apaga se existir, cria se não.
+- *a+* : leitura + escrita. Leitura no início, escrita sempre no final.
+
+Com `b` - binary
+
+No Linux não faz diferença, no Windows faz muita.
+
+- *rb, wb, ab, rb+, wb+, ab+* : abre em modo binário, não traduz `\n` para `\r\n`.
+
+Sempre use com `b` se for arquivo binário, imagem, etc. Ex: `fopen("foto.jpg", "rb")`
+
+Com `x` - exclusivo (C11)
+
+- *wx, wbx, etc* : igual `w`, mas falha se o arquivo já existir. Pra não apagar sem querer.
+
+fopen():
+Open a file and create a new stream for it.
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern FILE *fopen (const char *__restrict __filename,
+		    const char *__restrict __modes)
+  __attribute_malloc__ __attr_dealloc_fclose __wur;
+
+Open a file, replacing an existing stream with it.
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern FILE *freopen (const char *__restrict __filename,
+		      const char *__restrict __modes,
+		      FILE *__restrict __stream) __wur __nonnull ((3));		    
+#######################################################################
+
+#######################################################################
+fclose():
+
+Close STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern int fclose (FILE *__stream) __nonnull ((1));
+
+#######################################################################
+
+#######################################################################
+putc(), fputc():
+
+Write a character to STREAM.
+
+extern int fputc (int __c, FILE *__stream) __nonnull ((2));
+
+   These functions are possible cancellation points and therefore not
+   marked with __THROW.  */
+
+extern int putc (int __c, FILE *__stream) __nonnull ((2));
+#######################################################################
+
+#######################################################################
+getc(), fgetc():
+
+Read a character from STREAM.
+
+   These functions are possible cancellation points and therefore not
+   marked with __THROW.  */
+extern int fgetc (FILE *__stream) __nonnull ((1));
+extern int getc (FILE *__stream) __nonnull ((1));
+#######################################################################
+
+#######################################################################
+fseek():
+	
+Seek to a certain position on STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern int fseek (FILE *__stream, long int __off, int __whence)
+* Posiciona o arquivo em um byte especifico
+#######################################################################
+
+#######################################################################
+fprintf():
+
+Write formatted output to STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern int fprintf (FILE *__restrict __stream,
+#######################################################################
+
+#######################################################################
+fscanf():
+
+Read formatted input from STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern int fscanf (FILE *__restrict __stream,
+#######################################################################
+
+#######################################################################
+feof():
+
+Return the EOF indicator for STREAM.
+extern int feof (FILE *__stream) __THROW __wur __nonnull ((1));
+#######################################################################
+
+#######################################################################
+ferror():
+
+Return the error indicator for STREAM.
+extern int ferror (FILE *__stream) __THROW __wur __nonnull ((1));
+#######################################################################
+
+#######################################################################
+rewind():
+
+Rewind to the beginning of STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern void rewind (FILE *__stream) __nonnull ((1));
+
+* Realoca o indicador de posicao de arquivo no inicio do arquivo
+#######################################################################
+
+#######################################################################
+remove():
+
+Remove file FILENAME.
+extern int remove (const char *__filename) __THROW;
+#######################################################################
+
+#######################################################################
+fflush():
+Flush STREAM, or all streams if STREAM is NULL.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern int fflush (FILE *__stream);
+* Descarrega um arquivo
+#######################################################################
+
+#######################################################################
+ftell():
+Return the current position of STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern long int ftell (FILE *__stream) __wur __nonnull ((1));
+#######################################################################
+
+#######################################################################
+fread():
+Read chunks of generic data from STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern size_t fread (void *__restrict __ptr, size_t __size,
+		     size_t __n, FILE *__restrict __stream) __wur
+  __nonnull((4));
+#######################################################################
+
+#######################################################################
+fwrite():
+Write chunks of generic data to STREAM.
+
+   This function is a possible cancellation point and therefore not
+   marked with __THROW.  */
+extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+		      size_t __n, FILE *__restrict __s) __nonnull((4));
+
+#######################################################################
